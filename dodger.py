@@ -6,17 +6,19 @@ import numpy as np
 
 
 class Tunel:
+    
+    radius = 42
+    sides_num = 12
+
+    depth = 15
+    interval = 30
+
+    vertices = []
+    edges = []
+    sides = []
 
     def __init__(self):
-        self.radius = 42
-        self.sides_num = 12
-
-        self.depth = 15
-        self.interval = 30
-
-        self.vertices = []
-        self.edges = []
-        self.sides = []
+        pass
 
     def build(self):
         for z in range(0, self.depth):
@@ -71,7 +73,7 @@ class Tunel:
 
         length = len(self.vertices)
 
-        if self.vertices[length - 1][2] >= 400:
+        if self.vertices[length - 1][2] >= 420:
 
             temp = []
 
@@ -83,6 +85,22 @@ class Tunel:
                 self.vertices.insert(i, temp[i])
         for v in range(0, self.sides_num * self.depth):
             self.vertices[v] = np.add(self.vertices[v], [0, 0, 2])
+
+
+class Block:
+
+    vertices = []
+    edges = []
+    sides = []
+
+    def __init__(self, pos):
+        self.bottom_pos = pos
+
+    def build(self):
+
+        p = self.bottom_pos
+        vertices = [p[0], p[1], p[2], p[3]]
+        # top pos...
 
 
 def main():
