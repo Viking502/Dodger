@@ -7,7 +7,7 @@ import random
 
 RED = (0.8, 0.1, 0.1)
 GREEN = (0.1, 0.8, 0.1)
-BLUE = (0.1, 0.8, 0.1)
+BLUE = (0.1, 0.1, 0.8)
 PINK = (0.8, 0.1, 0.4)
 
 
@@ -139,17 +139,18 @@ class Tunel:
 
     def collsion(self):
         for block in self.blocks:
-            if (block.vertices[0][0] > 0 and block.vertices[1][0] < 0)\
-                    or (block.vertices[5][0] > 0 and block.vertices[4][0] < 0):
-                if (block.vertices[0][1] > 20 - self.radius  and block.vertices[4][1] < 20 - self.radius)\
-                        or (block.vertices[4][1] > 20 - self.radius  and block.vertices[0][1] < 20 - self.radius):
-                    if block.vertices[2][2] > 540 and block.vertices[0][2] < 540:
+            if (block.vertices[0][0] > 0 > block.vertices[1][0])\
+                    or (block.vertices[5][0] > 0 > block.vertices[4][0]):
+                if (block.vertices[0][1] > 20 - self.radius > block.vertices[4][1])\
+                        or (block.vertices[4][1] > 20 - self.radius > block.vertices[0][1]):
+                    if block.vertices[2][2] > 540 > block.vertices[0][2]:
                         print("game over")
                         self.restart()
 
     def restart(self):
         self.blocks.clear()
         self.start_flag = True
+
 
 class Block:
 
@@ -179,7 +180,7 @@ class Block:
         for i in range(0, 4):
             self.edges.append([i, i + 4])
 
-        for i in range(0,1):
+        for i in range(0, 1):
             self.sides.append([4 * i, 4 * i + 1, 4 * i + 2, 4 * i + 3])
         for i in range(0, 4):
             self.sides.append([i, (i + 1) % 4, (i + 1) % 4 + 4, i + 4])
@@ -211,7 +212,7 @@ def main():
     pygame.init()
 
     win_size = (1200, 900)
-    pygame.display.set_mode(win_size, pygame.DOUBLEBUF | pygame.OPENGL)
+    pygame.display.set_mode(win_size, pygame.DOUBLEBUF | pygame.OPENGL | pygame.RESIZABLE)
 
     gluPerspective(60, (win_size[0]/win_size[1]), 0.9, 600)
     glTranslate(0, terrain.radius - 20, -560)
@@ -231,6 +232,8 @@ def main():
             terrain.rotate(-1)
         if keys[pygame.K_a]:
             terrain.rotate(1)
+        if keys[pygame.K_ESCAPE]:
+            exit_flag = True
 
         terrain.clear()
         terrain.move()
