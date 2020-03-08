@@ -1,4 +1,4 @@
-from Tunel import *
+from Tunnel import *
 
 
 class Background:
@@ -12,15 +12,15 @@ class Background:
 
     @property
     def random_point(self):
-        x = random.randint(-Tunel.radius, Tunel.radius)
-        y = random.randint(-Tunel.radius, Tunel.radius)
-        z = random.randint(-10 * Tunel.interval, -2 * Tunel.interval)
+        x = random.randint(-Tunnel.radius, Tunnel.radius)
+        y = random.randint(-Tunnel.radius, Tunnel.radius)
+        z = random.randint(-10 * Tunnel.interval, -2 * Tunnel.interval)
         return[x, y, z]
 
     def move(self):
         for p in range(len(self.particles)):
             self.particles[p] = np.add(self.particles[p], [0, 0, 10])
-            if self.particles[p][2] > 2 * Tunel.interval:
+            if self.particles[p][2] > 2 * Tunnel.interval:
                 self.particles[p] = self.random_point
 
     def draw(self):

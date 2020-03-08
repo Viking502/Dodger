@@ -9,7 +9,7 @@ BLUE = (0.1, 0.1, 0.8)
 PINK = (0.8, 0.1, 0.4)
 
 
-class Tunel:
+class Tunnel:
     radius = 42
     sides_num = 12
 
@@ -116,9 +116,9 @@ class Tunel:
                 block.vertices[v] = np.add(block.vertices[v], [0, 0, self.velocity])
 
     def add_block(self, a):
-        bot = [Tunel.vertices[a], Tunel.vertices[a + 1], Tunel.vertices[a + 13], Tunel.vertices[a + 12]]
+        bot = [Tunnel.vertices[a], Tunnel.vertices[a + 1], Tunnel.vertices[a + 13], Tunnel.vertices[a + 12]]
         b = a + 6
-        top = [Tunel.vertices[b + 1], Tunel.vertices[b], Tunel.vertices[b + 12], Tunel.vertices[b + 13]]
+        top = [Tunnel.vertices[b + 1], Tunnel.vertices[b], Tunnel.vertices[b + 12], Tunnel.vertices[b + 13]]
 
         color = random.choice(RED, BLUE, PINK, GREEN)
         block = Block(bot, top, True, color)

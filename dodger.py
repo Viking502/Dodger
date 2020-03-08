@@ -8,7 +8,7 @@ def main():
 
     background = Background(20)
 
-    terrain = Tunel()
+    terrain = Tunnel()
     terrain.build()
 
     pygame.init()
