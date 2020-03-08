@@ -1,4 +1,7 @@
-from Tunnel import *
+from Tunnel import Tunnel
+import random
+import numpy as np
+from OpenGL.GL import *
 
 
 class Background:

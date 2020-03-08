@@ -1,7 +1,11 @@
+import math
 import pygame
 from OpenGL.GLU import *
+from OpenGL.GL import *
 
-from Background import *
+from Background import Background
+from Block import Block
+from Tunnel import Tunnel
 
 
 def main():

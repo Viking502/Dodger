@@ -1,7 +1,9 @@
+import math
 import numpy as np
 import random
 
-from Block import *
+from Block import Block
+from OpenGL.GL import *
 
 RED = (0.8, 0.1, 0.1)
 GREEN = (0.1, 0.8, 0.1)
@@ -120,7 +122,7 @@ class Tunnel:
         b = a + 6
         top = [Tunnel.vertices[b + 1], Tunnel.vertices[b], Tunnel.vertices[b + 12], Tunnel.vertices[b + 13]]
 
-        color = random.choice(RED, BLUE, PINK, GREEN)
+        color = random.choice([RED, BLUE, PINK, GREEN])
         block = Block(bot, top, True, color)
         block.build()
         self.blocks.append(block)
