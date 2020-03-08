@@ -120,22 +120,12 @@ class Tunel:
         b = a + 6
         top = [Tunel.vertices[b + 1], Tunel.vertices[b], Tunel.vertices[b + 12], Tunel.vertices[b + 13]]
 
-        rand = random.randint(0, 4)
-
-        if rand == 0:
-            color = RED
-        elif rand == 1:
-            color = BLUE
-        elif rand == 3:
-            color = GREEN
-        else:
-            color = PINK
-
+        color = random.choice(RED, BLUE, PINK, GREEN)
         block = Block(bot, top, True, color)
         block.build()
         self.blocks.append(block)
 
-    def collsion(self):
+    def collision(self):
         for block in self.blocks:
             if (block.vertices[0][0] > 0 > block.vertices[1][0])\
                     or (block.vertices[5][0] > 0 > block.vertices[4][0]):

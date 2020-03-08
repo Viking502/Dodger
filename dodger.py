@@ -41,7 +41,7 @@ def main():
 
         terrain.clear()
         terrain.move()
-        terrain.collsion()
+        terrain.collision()
 
         # glRotatef(1, 0, 0, int(2 * mat.pi))
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
