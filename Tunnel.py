@@ -19,6 +19,7 @@ class Tunnel:
     interval = 30
 
     velocity = 3
+    game_time = 0
 
     vertices = []
     edges = []
@@ -102,7 +103,10 @@ class Tunnel:
             for i in range(0, self.sides_num):
                 temp[i][2] = -self.interval
                 self.vertices.insert(i, temp[i])
-            if random.randint(0, 10) == 0:
+
+            if self.game_time < 9:
+                self.game_time += 0.1
+            if random.randint(0, 10 - int(self.game_time)) == 0:
                 self.start_flag = False
                 self.add_block(random.randint(0, 4))
 
