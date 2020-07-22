@@ -4,11 +4,14 @@ from OpenGL.GLU import *
 from OpenGL.GL import *
 
 from Background import Background
-from Block import Block
 from Tunnel import Tunnel
+
+from custom_shader import get_shader
 
 
 def main():
+
+    glUseProgram(get_shader())
 
     background = Background(20)
 
