@@ -2,6 +2,7 @@ from Tunnel import Tunnel
 import random
 import numpy as np
 from OpenGL.GL import *
+import math
 
 
 class Background:
