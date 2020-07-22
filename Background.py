@@ -26,6 +26,17 @@ class Background:
             if self.particles[p][2] > 2 * Tunnel.interval:
                 self.particles[p] = self.random_point
 
+    def rotate(self, x, angle_speed):
+        cos_x = math.cos(angle_speed * x)
+        sin_x = math.sin(angle_speed * x)
+
+        rotation_matrix = np.array([[cos_x, -sin_x, 0],
+                                    [sin_x, cos_x, 0],
+                                    [0, 0, 1]])
+
+        for idx, part in enumerate(self.particles):
+            self.particles[idx] = np.matmul(rotation_matrix, part)
+
     def draw(self):
         glLineWidth(1)
         glBegin(GL_LINES)

@@ -36,8 +36,10 @@ def main():
         keys = pygame.key.get_pressed()
         if keys[pygame.K_d]:
             terrain.rotate(-1)
+            background.rotate(-1, math.pi / terrain.sides_num / 2)
         if keys[pygame.K_a]:
             terrain.rotate(1)
+            background.rotate(1, math.pi / terrain.sides_num / 2)
         if keys[pygame.K_ESCAPE]:
             exit_flag = True
 
