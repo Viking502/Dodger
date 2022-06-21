@@ -11,6 +11,6 @@ setup(
     install_requires=[
         "pygame==1.9.6",
         "PyOpenGL==3.1.0",
-        "numpy==1.16.4",
+        "numpy==1.22.0",
     ]
 )
